@@ -1,4 +1,5 @@
 <?php
+if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 $host="localhost";
 $user="root";
 $pass="";
@@ -26,7 +27,7 @@ if(isset($_POST["submit"])){
     }
     else{
         echo
-        "<script> alert('Username este neexistuje');</script>";
+        "<script> alert('Username je nespravny alebo neexistuje');</script>";
     }
 }
 ?>
@@ -49,6 +50,6 @@ if(isset($_POST["submit"])){
     <button type="submit" name="submit">Login</button>
 </form>
 <br>
-<a href="reg.php">Registracia</a>
+    <button> <a href="reg.php">Register</a></button>
 </body>
 </html>

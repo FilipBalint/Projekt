@@ -1,7 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php
 
-<?php include_once "parts/header.php"; ?>
+$host="localhost";
+$user="root";
+$pass="";
+$db="projekt";
+
+$con=mysqli_connect($host,$user,$pass,$db);
+
+include_once "parts/header.php";
+?>
+
 
 
 <body>
@@ -86,116 +96,38 @@
                     </div>
                     
                     <div class="row tm-catalog-item-list">
+                        <?php
+                        $query="SELECT * FROM entita";
+                        $query_run=mysqli_query($con,$query);
+                        $check=mysqli_num_rows($query_run) > 0;
+
+                        if($check){
+                            while($row=mysqli_fetch_assoc($query_run)){
+                                ?>
                         <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
                             <div class="position-relative tm-thumbnail-container">
-                                <img src="img/tn-01.jpg" alt="Image" class="img-fluid tm-catalog-item-img">    
-                                <a href="video-page.php" class="position-absolute tm-img-overlay">
-                                    <i class="fas fa-play tm-overlay-icon"></i>
-                                </a>
-                            </div>    
-                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Aenean aliquet sapien</h3>
-                                <p class="tm-catalog-item-text">12345</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
-                            <div class="position-relative tm-thumbnail-container">
-                                <img src="img/tn-02.jpg" alt="Image" class="img-fluid tm-catalog-item-img">    
+                                <img src="img/<?php echo $row['video']; ?>" alt="Image" class="img-fluid tm-catalog-item-img">
                                 <a href="video-page.php" class="position-absolute tm-img-overlay">
                                     <i class="fas fa-play tm-overlay-icon"></i>
                                 </a>
                             </div>
                             <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Mauris in odio vel odio</h3>
-                                <p class="tm-catalog-item-text">You may need TemplateMo for a quick chat or send an email if you have any question about this CSS template. 
-                                    <span class="tm-text-secondary">font-family: 'Source Sans Pro', sans-serif; for this template.</span></p>
+                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title"> <?php
+                                    echo $row['name']; ?></h3>
+                                <p class="tm-catalog-item-text"><?php
+                                    echo $row['text']; ?></p>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
-                            <div class="position-relative tm-thumbnail-container">
-                                <img src="img/tn-03.jpg" alt="Image" class="img-fluid tm-catalog-item-img">    
-                                <a href="video-page.php" class="position-absolute tm-img-overlay">
-                                    <i class="fas fa-play tm-overlay-icon"></i>
-                                </a>
-                            </div>                            
-                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Sagittis sodales enim</h3>
-                                <p class="tm-catalog-item-text">You are allowed to use this video catalog for your business websites. 
-                                Please do not make a re-distribution of our template ZIP file on any template collection website.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
-                            <div class="position-relative tm-thumbnail-container">
-                                <img src="img/tn-04.jpg" alt="Image" class="img-fluid tm-catalog-item-img">    
-                                <a href="video-page.php" class="position-absolute tm-img-overlay">
-                                    <i class="fas fa-play tm-overlay-icon"></i>
-                                </a>
-                            </div>    
-                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Nam tincidunt consectetur</h3>
-                                <p class="tm-catalog-item-text">You can apply this template for your commercial CMS theme. Nam sem leo, imperdiet non lacinia eget, volutpat ac massa. Donec mattis in velit quis commodo. Cras nec rutrum arcu.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
-                            <div class="position-relative tm-thumbnail-container">
-                                <img src="img/tn-05.jpg" alt="Image" class="img-fluid tm-catalog-item-img">    
-                                <a href="video-page.php" class="position-absolute tm-img-overlay">
-                                    <i class="fas fa-play tm-overlay-icon"></i>
-                                </a>
-                            </div>
-                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Praesent posuere rhoncus</h3>
-                                <p class="tm-catalog-item-text">Duis vulputate nisl metus, eget dapibus nunc ultricies id. Ut augue mauris, varius quis nulla non, sollicitudin consectetur nisl. Donec eget arcu placerat, ullamcorper.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
-                            <div class="position-relative tm-thumbnail-container">
-                                <img src="img/tn-06.jpg" alt="Image" class="img-fluid tm-catalog-item-img">    
-                                <a href="video-page.php" class="position-absolute tm-img-overlay">
-                                    <i class="fas fa-play tm-overlay-icon"></i>
-                                </a>
-                            </div>                            
-                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Turpis massa aliquam</h3>
-                                <p class="tm-catalog-item-text">Nunc neque risus, ultrices sed luctus at, iaculis at arcu. Pellentesque rutrum velit nec sapien ullamcorper ultrices. Vestibulum lectus risus, laoreet pretium ipsum</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
-                            <div class="position-relative tm-thumbnail-container">
-                                <img src="img/tn-07.jpg" alt="Image" class="img-fluid tm-catalog-item-img">    
-                                <a href="video-page.php" class="position-absolute tm-img-overlay">
-                                    <i class="fas fa-play tm-overlay-icon"></i>
-                                </a>
-                            </div>    
-                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Class aptent taciti sociosqu</h3>
-                                <p class="tm-catalog-item-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus bibendum orci sit amet dignissim rhoncus. Pellentesque pretium faucibus vestibulum.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
-                            <div class="position-relative tm-thumbnail-container">
-                                <img src="img/tn-08.jpg" alt="Image" class="img-fluid tm-catalog-item-img">    
-                                <a href="video-page.php" class="position-absolute tm-img-overlay">
-                                    <i class="fas fa-play tm-overlay-icon"></i>
-                                </a>
-                            </div>
-                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Donec ac nisl ul elit</h3>
-                                <p class="tm-catalog-item-text">Suspendisse in odio congue, lobortis metus sed, venenatis nisl. In dapibus et massa feugiat facilisis. Maecenas venenatis aliquet nulla, a tincidunt erat suscipit eget.</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 tm-catalog-item">
-                            <div class="position-relative tm-thumbnail-container">
-                                <img src="img/tn-09.jpg" alt="Image" class="img-fluid tm-catalog-item-img">    
-                                <a href="video-page.php" class="position-absolute tm-img-overlay">
-                                    <i class="fas fa-play tm-overlay-icon"></i>
-                                </a>
-                            </div>                            
-                            <div class="p-4 tm-bg-gray tm-catalog-item-description">
-                                <h3 class="tm-text-primary mb-3 tm-catalog-item-title">Sed mattis nisi erat</h3>
-                                <p class="tm-catalog-item-text">Integer ultricies mi eu aliquet cursus. Nam sem leo, imperdiet non lacinia eget, volutpat ac massa. Donec mattis in velit quis commodo. Cras nec rutrum arcu.</p>
-                            </div>
-                        </div>
+                        <?php
+                            }
+                        }
+                        else{
+                            echo "Ziadna entita neexistuje";
+                        }
+                        ?>
+
+
+
                     </div>
 
                     <!-- Catalog Paging Buttons -->

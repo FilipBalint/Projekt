@@ -44,7 +44,7 @@ if(isset($_POST["submit"])){
             <input type="text" name="username" id="username" required value=""> <br>
 
             <label for="email">Email :</label>
-            <input type="text" name="email" id="email" required value=""> <br>
+            <input type="email" name="email" id="email" required value=""> <br>
 
             <label for="password">Password :</label>
             <input type="password" name="password" id="password" required value=""> <br>
@@ -54,6 +54,6 @@ if(isset($_POST["submit"])){
             <button type="submit" name="submit">Register</button>
         </form>
         <br>
-        <a href="login.php">Login</a>
+        <button> <a href="login.php">Login</a></button>
         </body>
 </html>

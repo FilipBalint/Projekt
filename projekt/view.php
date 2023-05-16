@@ -1,10 +1,20 @@
 <?php
+if(session_status() !== PHP_SESSION_ACTIVE) session_start();
 $host="localhost";
 $user="root";
 $pass="";
 $db="projekt";
 
 $con=mysqli_connect($host,$user,$pass,$db);
+if(!empty($_SESSION["id"])){
+    $id=$_SESSION["id"];
+    $result=mysqli_query($con,"SELECT * FROM reglog WHERE id=$id");
+    $row=mysqli_fetch_assoc($result);
+}
+else{
+
+    header("Location: login.php?error=nieste_prihlaseny");
+}
 ?>
 
 <table border="1px" cellpadding="10px" cellspacing="0">

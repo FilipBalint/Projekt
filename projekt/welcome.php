@@ -27,7 +27,8 @@ else{
     </head>
 
     <body>
-        <h1>Welcome <?php echo $row["username"];?></h1>
-        <a href="logout.php">Logout</a>
+        <h1>Chcete sa odhlasit <?php echo $row["username"];?>?</h1>
+        <button><a href="logout.php">Logout</a></button>
+        <button><a href="admin.php">Back</a></button>
     </body>
 </html>

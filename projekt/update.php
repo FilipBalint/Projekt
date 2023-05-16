@@ -23,8 +23,9 @@ $row=mysqli_fetch_array($data);
                placeholder="text"> <br> <br>
 
         <input value= "<?php echo $row['video']?>"
-            type="text" name="video"
-               placeholder="obrazok"> <br> <br>
+            type="file" name="video"
+               id="video" accept=".jpg, .png, .jpeg"
+               value=""> <br> <br>
 
         <input type="submit" name="update_btn"
                value="Update">
